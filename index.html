@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet">
+
+    <script>
+        /* Máscaras ER */
+        function mascara(o,f){
+            v_obj=o
+            v_fun=f
+            setTimeout("execmascara()",1)
+        }
+        function execmascara(){
+            v_obj.value=v_fun(v_obj.value)
+        }
+        function mtel(v){
+            v=v.replace(/\D/g,""); //Remove tudo o que não é dígito
+            v=v.replace(/^(\d{2})(\d)/g,"($1) $2"); //Coloca parênteses em volta dos dois primeiros dígitos
+            v=v.replace(/(\d)(\d{4})$/,"$1-$2"); //Coloca hífen entre o quarto e o quinto dígitos
+            return v;
+        }
+        function id( el ){
+            return document.getElementById( el );
+        }
+        window.onload = function(){
+            id('telefone').onkeyup = function(){
+                mascara( this, mtel );
+            }
+        }
+    </script>
+
+    <script type="text/javascript">
+        window.onload = function(){
+            document.querySelector(".menuMobile").addEventListener("click", function(){
+                if(document.querySelector(".menu nav ul").style.display == 'flex') {
+                document.querySelector(".menu nav ul").style.display = 'none';
+                } else {
+                    document.querySelector(".menu nav ul").style.display = 'flex';
+                }
+            });
+        };
+    </script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="img"><a href=""><img src="./Imagens/logo.png"></a></div>
+            <div class="menu">
+                <nav>
+                    <div class="menuMobile">
+                        <div class="mm_line"></div>
+                        <div class="mm_line"></div>
+                        <div class="mm_line"></div>
+                    </div>
+                    <ul>
+                        <li><a href=""><div class="item item_1">Home</div></a></li>
+                        <li><a href=""><div class="item">Galeria</div></a></li>
+                        <li><a href=""><div class="item">Contato</div></a></li>
+                        <li><div class="item active item_2">Cadastro</div></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="formulario">
+        <div class="cadastro">
+            <form action="" method="get" class="form-example">
+                <fieldset class="cadastro_1">
+                    <legend>Tela de Cadastro</legend>
+
+                    <div class="input_area">
+                        <label>Nome Completo</label>
+                        <input type="text" name="name" placeholder="Seu nome" required>
+                    </div>
+
+                    <div class="input_area">
+                        <label>Nick</label>
+                        <input type="text" name="nick" placeholder="Seu nick" required>
+                    </div>
+
+                    <div class="input_area">
+                        <label>Email</label>
+                        <input type="email" name="email" placeholder="Seu email" required>
+                    </div>
+
+                    <div class="input_area">
+                        <label>Senha</label>
+                        <input type="password" name="password" placeholder="Sua senha" required>
+                    </div>
+
+                    <div class="input_area">
+                        <label>Telefone</label>
+                        <input type="tel" name="telefone" id="telefone" placeholder="(00) 00000-0000" maxlength="15" required/>
+                    </div>
+
+                    <div class="input_area">
+                        <label>Data de Nascimento</label>
+                        <div class="old">
+                            <input type="number" min="1" max="31" maxlength="2" name="day" placeholder="Dia" required>/
+                            <input type="number" min="1" max="12" maxlength="2" name="month" placeholder="Mês" required>/
+                            <input type="number" min="1880" max="2023" maxlength="4" name="year" placeholder="Ano" required>
+                        </div>
+                    </div>
+
+                    <div class="input_area">
+                        <div class="term">
+                            <input type="checkbox" name="Politica" required>Li e concordo com os termos da <a href="">Politica de Privacidade</a>
+                            </div>
+                        </div>
+
+                    <div class="input_area">
+                        <div class="buttom">
+                            <input type="submit" value="Cadastrar">
+                        </div>
+                    </div>
+
+                </fieldset>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="copy"> © Copyright - Todos os direitos reservados - By <white>Sch3lzin</white></div>
+    </footer>
+
+</body>
+</html>
